@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <link href="{% static 'bootstrap.min.css' %}"
+          rel="stylesheet">
+    <link href="{% static 'style.css' %}"
+          rel="stylesheet">
+    <title>Prezenty</title>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-static-top text-center">
+    <a href="/">
+        <img src="{% static 'images/baner-01.png' %}" alt="Lista prezentów">
+    </a>
+</nav>
+<main class="container" role="main">
+    <div class="gift panel panel-default">
+        {% for gift in gifts %}
+    <div class="panel-heading">
+        <h2 class="panel-title"> {{ gift.name }}</h2>
+    </div>
+     <div class="panel-body">
+         {{ gift.link }}
+     </div>
+    {% endfor %}
+    </div>
+</main>
+</body>
+</html>
