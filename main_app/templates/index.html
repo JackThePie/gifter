@@ -23,8 +23,20 @@
      <div class="panel-body">
          {{ gift.link }}
      </div>
+     <button id ="occupied" data-id="{{ gift.id }}"
+             class="btn btn-success"
+             type="button">
+         {% if gift.occupied > 0 %} {{ gift.occupied }} {% endif %}
+     </button>
+
+
     {% endfor %}
     </div>
 </main>
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+
 </body>
 </html>
