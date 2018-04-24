@@ -2,32 +2,43 @@ from django.shortcuts import render
 from .models import Gift
 from django.http import HttpResponse
 from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from .forms import ContactForm
 
 # Create your views here.
 def index(request):
     gifts = Gift.objects.all()
     return render(request, 'index.html', {'gifts': gifts})
 
+# def occupy(request):
+#     gift_id = request.GET.get('gift_id', None)
+#
+#     occupied = 0
+#     if (gift_id):
+#         gift = Gift.objects.get(id=int(gift_id))
+#         if gift is not None and gift.occupied != 0:
+#             occupied = gift.occupied = 1
+#             gift.occupied = occupied
+#             gift.save()
+#             # send_mail(
+#             #     'Test',
+#             #     'testtest',
+#             #     'jacool92@gmail.com',
+#             #     ['jacool92@gmail.com'],
+#             #     fail_silently=False,
+#             # )
+#     form = ContactForm
+#     if form:
+#         email = EmailMessage('test', 'testteset', to=['jacool92@gmail.com'])
+#         email.send()
+#     return HttpResponse(occupied)
+
 def occupy(request):
-    gift_id = request.GET.get('gift_id', None)
+    form = ContactForm()
 
-    occupied = 0
-    if (gift_id):
-        gift = Gift.objects.get(id=int(gift_id))
-        if gift is not None:
-            occupied = gift.occupied = 1
-            gift.occupied = occupied
-            gift.save()
-    return HttpResponse(occupied)
+    return render(request, 'index.html', {'form': form,
+                                            })
 
-def send_mail():
-    send_mail(
-        'Subject here',
-        'Here is the message.',
-        'from@example.com',
-        ['to@example.com'],
-        fail_silently=False,
-    )
 
 
 # class Gift:
