@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Gift
 from django.http import HttpResponse
+from django.core.mail import send_mail
 
 # Create your views here.
 def index(request):
@@ -18,6 +19,16 @@ def occupy(request):
             gift.occupied = occupied
             gift.save()
     return HttpResponse(occupied)
+
+def send_mail():
+    send_mail(
+        'Subject here',
+        'Here is the message.',
+        'from@example.com',
+        ['to@example.com'],
+        fail_silently=False,
+    )
+
 
 # class Gift:
 #     def __init__(self, name, link):

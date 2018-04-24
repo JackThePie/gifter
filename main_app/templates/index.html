@@ -22,12 +22,13 @@
     </div>
      <div class="panel-body">
          {{ gift.link }}
-     </div>
-     <button id ="occupied" data-id="{{ gift.id }}"
+         <button id ="occupied" data-id="{{ gift.id }}"
              class="btn btn-success"
              type="button">
          {% if gift.occupied > 0 %} {{ gift.occupied }} {% endif %}
      </button>
+     </div>
+
 
 
     {% endfor %}
