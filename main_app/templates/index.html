@@ -32,6 +32,11 @@
                   {% csrf_token %}
                   {{ form.as_p }}
                   <button type="submit">Potwierdź</button>
+                  <!--<button id ="occupied" data-id="{{ gift.id }}"-->
+                  <!--class="btn btn-success"-->
+                  <!--type="button">-->
+               <!--{{ gift.occupied }}-->
+               <!--</button>-->
                </form>
             </div>
             {% endfor %}
