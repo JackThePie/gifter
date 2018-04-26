@@ -5,7 +5,7 @@ from django.db import models
 class Gift(models.Model):
     name = models.CharField(max_length=100)
     link = models.URLField(max_length=100)
-    email = models.EmailField()
+    email = models.EmailField(max_length=100)
     occupied = models.BooleanField(default=0)
 
     def __str__(self):

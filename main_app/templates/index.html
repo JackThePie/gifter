@@ -30,8 +30,9 @@
                <span class="badge badge-success">{{ gift.occupied }}</span>
                <form role="form" action="" method="post">
                   {% csrf_token %}
-                  {{ form.as_p }}
-                  <button type="submit">Potwierdź</button>
+                  {{ form }}
+                  <!--<input id="recipient_email" type="email" name="recipient_email_address">-->
+                  <button type="submit" data-id="{{ gift.id }}">Submit</button>
                   <!--<button id ="occupied" data-id="{{ gift.id }}"-->
                   <!--class="btn btn-success"-->
                   <!--type="button">-->
