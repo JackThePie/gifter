@@ -23,8 +23,8 @@ def index(request):
         print("post")
     form_class = ContactForm(request.POST)
     if form_class.is_valid():
-            print('is_valid')
             occupy(request)
+            print('is_valid')
     else:
         print("nopost")
         form_class = ContactForm()
@@ -39,7 +39,7 @@ def occupy(request):
         print('post2')
     if form_class.is_valid():
         form_class.save()
-        print('is_valid')
+        print('is_valid2')
     else:
         print("nopost")
         form_class = ContactForm()
@@ -59,7 +59,6 @@ def occupy(request):
             #     ['jacool92@gmail.com'],
             #     fail_silently=False,
             # )
-        if form:
             email = EmailMessage('test', 'testteset', to=['jacool92@gmail.com'])
             email.send()
     return HttpResponse(occupied)
