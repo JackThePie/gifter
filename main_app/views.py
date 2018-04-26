@@ -20,29 +20,39 @@ def index(request):
     #         email.send()
 
     if request.method == 'POST':
-        print("post")
-    form_class = ContactForm(request.POST)
-    if form_class.is_valid():
-            occupy(request)
-            print('is_valid')
+        occupy(request)
+        print('is_valid in index')
+        # form_class.save()
+        print('saved?')
+        print(request.POST)
+    #     print("post")
+    # form_class = ContactForm(request.POST)
+    # if form_class.is_valid():
+            # occupy(request)
+            # print('is_valid in index')
+            # form_class.save()
+            # print('saved?')
+            # print(request.POST)
     else:
         print("nopost")
-        form_class = ContactForm()
+        # form_class = ContactForm()
 
     return render(request, 'index.html', {'gifts': gifts,
                                           'form': form_class})
 def occupy(request):
     gift_id = request.GET.get('gift_id', None)
     print("occupy")
-    form_class = ContactForm()
+    form_class = ContactForm(request.POST)
     if request.method == 'POST':
         print('post2')
     if form_class.is_valid():
-        form_class.save()
+        # form_class.save()
         print('is_valid2')
     else:
         print("nopost")
-        form_class = ContactForm()
+        # form_class = ContactForm()
+    if request.method == 'GET':
+        print('GOT IT')
     occupied = 0
     if (gift_id):
         gift = Gift.objects.get(id=int(gift_id))
