@@ -22,16 +22,19 @@
             </div>
             <div class="panel-body">
                {{ gift.link }}
+               <!--<input id="recipient_email" type="email" name="recipient_email_address" data-id="{{ gift.id }}">-->
                <!--<button id ="occupied" data-id="{{ gift.id }}"-->
                   <!--class="btn btn-success"-->
                   <!--type="button">-->
                <!--{{ gift.occupied }}-->
                <!--</button>-->
                <span class="badge badge-success">{{ gift.occupied }}</span>
-               <form role="form" action="" method="post">
-                  {% csrf_token %}
-                  {{ form }}
-                  <button type="submit">Potwierdź</button>
+               <form role="form" action="" method="get">
+                  <!--{% csrf_token %}-->
+                  <!--{{ form }}-->
+                  <input type="text" name="q">
+                  <!--<input type="submit" value="szukaj">-->
+                  <!--<button type="submit">Potwierdź</button>-->
                   <!--<button id ="occupied" data-id="{{ gift.id }}"-->
                   <!--class="btn btn-success"-->
                   <!--type="button">-->
@@ -39,11 +42,11 @@
                   <!--</button>-->
                   <!--<input id="recipient_email" type="email" name="recipient_email_address">-->
                   <!--<button type="submit" data-id="{{ gift.id }}">Submit</button>-->
-                  <!--<button id ="occupied" data-id="{{ gift.id }}"-->
-                  <!--class="btn btn-success"-->
-                  <!--type="button">-->
-               <!--{{ gift.occupied }}-->
-               <!--</button>-->
+                  <input id ="occupied" data-id="{{ gift.id }}"
+                  class="btn btn-success"
+                  type="button">
+               {{ gift.occupied }}
+               </input>
                </form>
             </div>
             {% endfor %}
