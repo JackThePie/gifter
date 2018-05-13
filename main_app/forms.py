@@ -5,6 +5,7 @@ class ContactForm(forms.Form):
 
 
 # class ContactForm(forms.ModelForm):
+#     name = forms.CharField(widget=forms.TextInput(attrs={'onchange': 'this.form.submit();', 'class': 'editinput'}))
 #     class Meta:
 #         model = Gift
 #         fields = ('email',)

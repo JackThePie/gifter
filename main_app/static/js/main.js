@@ -5,7 +5,8 @@
 //        url: '/occupy/',
 //        type: 'GET',
 //        data: {
-//            gift_id: element.attr("data-id")
+//            gift_id: element.attr("data-id"),
+//            q: $("#q").val()
 //        },
 //        success: function(response) {
 //            element.html(' ' + response);
