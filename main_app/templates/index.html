@@ -29,17 +29,17 @@
                <!--{{ gift.occupied }}-->
                <!--</button>-->
                <span class="badge badge-success">{{ gift.occupied }}</span>
-               <form role="form" action="" method="POST">
+               <form role="form" action="" method="POST" id="form">
                   {% csrf_token %}
-                  <!--{{ form }}-->
-                  <input type="text" name="q" id="q">
-                  <!--<input type="submit" value="szukaj">-->
+                  {{ form }}
+                  <!--<input type="text" name="q" id="q">-->
+                  <input type="submit" value="szukaj" name='q' data-id="{{ gift.id }}">
                   <!--<button type="submit   ">Potwierdź</button>-->
-                  <button id ="occupied" data-id="{{ gift.id }}"
-                  class="btn btn-success"
-                  type="button">
-                  {{ gift.occupied }}
-                  </button>
+                  <!--<button id ="occupied" data-id="{{ gift.id }}"-->
+                  <!--class="btn btn-success"-->
+                  <!--type="button">-->
+                  <!--{{ gift.occupied }}-->
+                  <!--</button>-->
                   <!--<input id="recipient_email" type="email" name="recipient_email_address">-->
                   <!--<button type="submit" data-id="{{ gift.id }}">Submit</button>-->
                   <!--<button id ="occupied" data-id="{{ gift.id }}"-->
