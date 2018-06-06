@@ -17,10 +17,10 @@ def index(request):
 
     if request.method == 'POST':
         print('lolex')
-        print(request)
-        form = ContactForm(request.POST)
-        if(form.is_valid()):
-            print(request.POST)
+        # print(request)
+        # form = ContactForm(request.POST)
+        # if(form.is_valid()):
+            # print(request.POST)
         # occupy(request)
 
     return render(request, 'index.html', {'gifts': gifts,
@@ -32,7 +32,10 @@ def occupy(request):
     print('hrj')
     gift_id = request.GET.get('gift_id', None)
     print(gift_id)
-    print(request)
+    # print(type(request))
+    test = dict(request.GET.lists())
+    email = test['form_data[1][value]']
+    print(email)
 
     occupied = 0
     if (gift_id):
@@ -40,7 +43,8 @@ def occupy(request):
         gift = Gift.objects.get(id=int(gift_id))
         print('identified')
 
-
+        print(gift.name)
+        print(gift.link)
         if gift is not None and gift.occupied == 0 and gift.email == '':
             print('Its working!')
             occupied = gift.occupied = 1
@@ -48,13 +52,19 @@ def occupy(request):
 
             gift.save()
 
-            # send_mail(
-            #     'Test',
-            #     'testtest',
-            #     'jacool92@gmail.com',
-            #     ['jacool92@gmail.com'],
-            #     fail_silently=False,
-            # )
-            # email = EmailMessage('test', 'testteset', to=['jacool92@gmail.com'])
+            send_mail(
+                'Prezent dla Klary i Jacka, który zarezerwowałeś, to: {}'.format(gift.name),
+                'Gratulacje! \n'
+                'Wybrałeś prezent: {}\n'
+                'Przykładowy link: {}\n'
+                'Do zobaczenia ma Ślubie!'.format(gift.name, gift.link),
+                'jacool92@gmail.com',
+                email,
+                fail_silently = False,
+            )
+            # email = EmailMessage('Prezent dla Klary i Jacka, który zarezerwowałeś, to: {}'.format(gift.name),
+            #                      'Gratulacje! \n Wybrałeś prezent: {}'
+            #                      'Przykładowy link: {}'
+            #                      'Do zobaczenia ma Ślubie!'.format(gift.name, gift.link), to=[email])
             # email.send()
     return HttpResponse(occupied)

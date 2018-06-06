@@ -41,12 +41,13 @@
                   <!--{{ gift.occupied }}-->
                   <!--</button>-->
                   <!--<input id="recipient_email" type="email" name="recipient_email_address">-->
-                  <!--<button type="submit" data-id="{{ gift.id }}">Submit</button>-->
-                  <button id ="occupied" data-id="{{ gift.id }}"
-                  class="btn btn-success"
-                  type="button">
-               {{ gift.occupied }}
-               </button>
+                  <button id="submit" data-id="{{ gift.id }}"
+                          type="submit" >{{ gift.occupied }}</button>
+                  <!--<button id ="occupied" data-id="{{ gift.id }}"-->
+                  <!--class="btn btn-success"-->
+                  <!--type="button">-->
+               <!--{{ gift.occupied }}-->
+               <!--</button>-->
                </form>
             </div>
             {% endfor %}

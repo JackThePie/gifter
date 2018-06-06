@@ -1,6 +1,7 @@
 $('button').on('click', function(event){
     event.preventDefault();
-    var formData = $('form').serialize();
+    var formData = $('form').serializeArray();
+//    var formData = 'test';
     var element = $(this);
     $.ajax({
         url : '/occupy/',
