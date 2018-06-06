@@ -38,7 +38,7 @@ def occupy(request):
     print(email)
 
     occupied = 0
-    if (gift_id):
+    if (gift_id) and '@' in email[0]:
         print("blah")
         gift = Gift.objects.get(id=int(gift_id))
         print('identified')
@@ -67,4 +67,6 @@ def occupy(request):
             #                      'Przykładowy link: {}'
             #                      'Do zobaczenia ma Ślubie!'.format(gift.name, gift.link), to=[email])
             # email.send()
+        else:
+            print('Bad email adress')
     return HttpResponse(occupied)
