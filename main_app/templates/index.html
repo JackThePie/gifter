@@ -16,41 +16,38 @@
       </nav>
       <main class="container" role="main">
          <div class="gift panel panel-default">
+
             {% for gift in gifts %}
-            <div class="panel-heading">
-               <h2 class="panel-title"> {{ gift.name }}</h2>
-            </div>
-            <div class="panel-body">
-               {{ gift.link }}
-               <!--<input id="recipient_email" type="email" name="recipient_email_address" data-id="{{ gift.id }}">-->
-               <!--<button id ="occupied" data-id="{{ gift.id }}"-->
-                  <!--class="btn btn-success"-->
-                  <!--type="button">-->
-               <!--{{ gift.occupied }}-->
-               <!--</button>-->
-               <span class="badge badge-success">{{ gift.occupied }}</span>
-               <form role="form" action="" method="POST" id="{{ gift.id }}" data-id="{{ gift.id }}">
-                  {% csrf_token %}
-                  {{ form }}
-                  <!--<input type="text" name="q" id="q">-->
-                  <!--<input type="submit" value="szukaj" name='q' data-id="{{ gift.id }}">-->
-                  <!--<button type="submit   ">Potwierdź</button>-->
-                  <!--<button id ="occupied" data-id="{{ gift.id }}"-->
-                  <!--class="btn btn-success"-->
-                  <!--type="button">-->
-                  <!--{{ gift.occupied }}-->
-                  <!--</button>-->
-                  <!--<input id="recipient_email" type="email" name="recipient_email_address">-->
-                  <button id="submit" data-id="{{ gift.id }}"
-                          type="submit" >{{ gift.occupied }}</button>
-                  <!--<button id ="occupied" data-id="{{ gift.id }}"-->
-                  <!--class="btn btn-success"-->
-                  <!--type="button">-->
-               <!--{{ gift.occupied }}-->
-               <!--</button>-->
-               </form>
-            </div>
+            {% if gift.occupied == 0 %}
+               <div class="panel-heading">
+                  <h2 class="panel-title"> {{ gift.name }}</h2>
+               </div>
+               <div class="panel-body">
+                  {{ gift.link }}
+                  <span class="badge badge-success">{{ gift.occupied }}</span>
+                  <form role="form" action="" method="POST" id="{{ gift.id }}" data-id="{{ gift.id }}">
+                     {% csrf_token %}
+                     {{ form }}
+                     <button id="submit" data-id="{{ gift.id }}"
+                             type="submit" >{{ gift.occupied }}</button>
+                  </form>
+               </div>
+            {% endif %}
             {% endfor %}
+         </div>
+         <div class="gift panel panel-default">
+            {% for gift in gifts %}
+            {% if gift.occupied != 0 %}
+               <div class="panel-heading">
+                  <h2 class="panel-title"> {{ gift.name }}</h2>
+               </div>
+               <div class="panel-body">
+                  {{ gift.link }}
+                  <span class="badge badge-success">{{ gift.occupied }}</span>
+               </div>
+            {% endif %}
+            {% endfor %}
+
          </div>
       </main>
       <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
