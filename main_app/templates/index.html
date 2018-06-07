@@ -24,7 +24,8 @@
                   <h2 class="panel-title"> {{ gift.name }}</h2>
                </div>
                <div class="panel-body">
-                  <a href="{{ gift.link }}">{{ gift.link }}</a>
+                  <a class="btn btn-primary" href="{{ gift.link }}" target="_blank">Przykład prezentu</a>
+                  <a href="{{ gift.link }}" target="_blank">Przykład prezentu</a>
                   <span class="badge badge-success">Wolny!</span>
                   <form role="form" action="" method="POST" id="{{ gift.id }}" data-id="{{ gift.id }}">
                      {% csrf_token %}
