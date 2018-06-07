@@ -2,6 +2,7 @@ $('button').on('click', function(event){
     event.preventDefault();
     var formData = $(this.form).serializeArray();
 //    var formData = 'test';
+    var url = "http://klaraijacek.pythonanywhere.com";
     var element = $(this);
     $.ajax({
         url : '/occupy/',
@@ -10,7 +11,8 @@ $('button').on('click', function(event){
                  form_data : formData},
         success : function(response){
 //            element.html(' ' + response);
-                location.reload();
+//                location.reload();
+        window.location = url; 
         }
     });
 });
