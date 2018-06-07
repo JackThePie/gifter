@@ -50,7 +50,7 @@ def occupy(request):
             print('Its working!')
             occupied = gift.occupied = 1
             gift.occupied = occupied
-
+            gift.email = email[0]
             gift.save()
 
             send_mail(
