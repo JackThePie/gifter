@@ -21,12 +21,11 @@
             {% for gift in gifts %}
             {% if gift.occupied == 0 %}
                <div class="panel-heading">
-                  <h2 class="panel-title"> {{ gift.name }}</h2>
+                  <h2 class="panel-title"> {{ gift.name }} <span class="badge badge-success">Wolny!</span> </h2>
                </div>
                <div class="panel-body">
-                  <a class="btn btn-primary" href="{{ gift.link }}" target="_blank">Przykład prezentu</a>
-                  <a href="{{ gift.link }}" target="_blank">Przykład prezentu</a>
-                  <span class="badge badge-success">Wolny!</span>
+                  <a class="btn btn-success" href="{{ gift.link }}" target="_blank">Przykład prezentu</a>
+
                   <form role="form" action="" method="POST" id="{{ gift.id }}" data-id="{{ gift.id }}">
                      {% csrf_token %}
                      {{ form }}
