@@ -9,7 +9,8 @@ $('button').on('click', function(event){
         data : { gift_id : element.attr("data-id"),
                  form_data : formData},
         success : function(response){
-            element.html(' ' + response);
+//            element.html(' ' + response);
+            location.reload();
         }
     });
 });
