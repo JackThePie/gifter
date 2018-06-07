@@ -1,6 +1,6 @@
 $('button').on('click', function(event){
     event.preventDefault();
-    var formData = $('form').serializeArray();
+    var formData = $(this.form).serializeArray();
 //    var formData = 'test';
     var element = $(this);
     $.ajax({
@@ -25,7 +25,9 @@ $('button').on('click', function(event){
 ////        data : formData,
 //        data : { gift_id : element.attr("data-id")},
 //        success : function(response){
-//            element.html(' ' + response);
+////            element.html(' ' + response);
+//            location.reload();
+//
 //        }
 //    });
 //});

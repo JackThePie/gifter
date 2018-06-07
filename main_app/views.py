@@ -35,7 +35,7 @@ def occupy(request):
     print(gift_id)
     # print(type(request))
     test = dict(request.GET.lists())
-    email = test['form_data[1][value]']
+    email = test['form_data[1][value]'.format(gift_id)]
     print(email)
 
     occupied = 0
