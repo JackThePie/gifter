@@ -10,7 +10,7 @@ $('button').on('click', function(event){
                  form_data : formData},
         success : function(response){
 //            element.html(' ' + response);
-            location.reload();
+                location.reload();
         }
     });
 });
