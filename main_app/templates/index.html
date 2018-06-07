@@ -16,15 +16,15 @@
       </nav>
       <main class="container" role="main">
          <div class="gift panel panel-success">
-            <div class="panel-heading"><h3>Do wzięcia</h3></div>
+            <div class="panel-heading text-center"><h3>Do wzięcia</h3></div>
             <div class="gift panel panel-success">
             {% for gift in gifts %}
             {% if gift.occupied == 0 %}
                <div class="panel-heading">
-                  <h2 class="panel-title"> {{ gift.name }} <span class="badge badge-success">Wolny!</span> </h2>
+                  <h3 class="panel-title"> {{ gift.name }} <span class="badge badge-success">Wolny!</span> </h3>
                </div>
                <div class="panel-body">
-                  <a class="btn btn-success" href="{{ gift.link }}" target="_blank">Przykład prezentu</a>
+                  <a class="btn btn-success pull-right" href="{{ gift.link }}" target="_blank">Przykład prezentu</a>
 
                   <form role="form" action="" method="POST" id="{{ gift.id }}" data-id="{{ gift.id }}">
                      {% csrf_token %}
@@ -38,7 +38,7 @@
          </div>
          </div>
          <div class="gift panel panel-default">
-            <div class="panel-heading"><h3>Zajęte</h3></div>
+            <div class="panel-heading text-center"><h3>Zajęte</h3></div>
             <div class="gift panel panel-default">
             {% for gift in gifts %}
             {% if gift.occupied != 0 %}
