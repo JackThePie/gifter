@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Gift
 from django.http import HttpResponse
 from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
 from .forms import ContactForm
 from django.template.loader import get_template
@@ -63,13 +64,25 @@ def occupy(request):
             #     email,
             #     fail_silently = False,
             # )
+            # send_mail(
+            #     'Prezent dla Klary i Jacka, który zarezerwowałeś, to: {}'.format(gift.name),
+            #     'email.html'.format(gift_name=gift.name, gift_link=gift.link),
+            #     'jacekbera1@gmail.com',
+            #     email,
+            #     fail_silently = False,
+            # )
+
+            msg_plain = render_to_string('templates/email.txt', {'gift_name': gift.name, 'gift_link': gift.link})
+            msg_html = render_to_string('templates/email.html', {'gift_name': gift.name, 'gift_link': gift.link})
+
             send_mail(
                 'Prezent dla Klary i Jacka, który zarezerwowałeś, to: {}'.format(gift.name),
-                'email.html'.format(gift_name=gift.name, gift_link=gift.link),
+                msg_plain,
                 'jacekbera1@gmail.com',
                 email,
-                fail_silently = False,
+                html_message=msg_html,
             )
+
             # email = EmailMessage('Prezent dla Klary i Jacka, który zarezerwowałeś, to: {}'.format(gift.name),
             #                      'Gratulacje! \n Wybrałeś prezent: {}'
             #                      'Przykładowy link: {}'

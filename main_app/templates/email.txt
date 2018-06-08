@@ -1,0 +1,5 @@
+Gratulacje! Zarezerwowałeś: {gift_name}
+Prezent dla Klary i Jacka, który zarezerwowałeś, to: {gift_name}
+Link do przykładowego prezentu: {grift_link}
+Do zobaczenia na Ślubie!
+Klara i Jacek
