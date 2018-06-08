@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pl">
+   <head>
+      <link href="{% static 'bootstrap.min.css' %}"
+         rel="stylesheet">
+      <link href="{% static 'style.css' %}"
+         rel="stylesheet">
+      <title>Prezenty</title>
+   </head>
+   <body>
+      <nav class="navbar navbar-default navbar-static-top text-center">
+         <a href="/">
+         <img src="{% static 'images/baner-01.png' %}" alt="Lista prezentów">
+         </a>
+      </nav>
+      <main class="container" role="main">
+         <div class="gift panel panel-success">
+            <div class="panel-heading text-center"><h3>Gratulacje! Zarezerwowałeś: {gift_name}</h3></div>
+                <div class="panel-body text-center">
+                    <h4>Prezent dla Klary i Jacka, który zarezerwowałeś, to: {gift_name}</h4>
+                    <h5>Link do przykładowego prezentu: {grift_link}</h5>
+                    <h4>Do zobaczenia na Ślubie!</h4>
+                    <h5>Klara i Jacek</h5>
+                </div>
+         </div>
+
+      </main>
+   </body>
+</html>

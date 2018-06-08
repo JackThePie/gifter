@@ -53,13 +53,20 @@ def occupy(request):
             gift.email = email[0]
             gift.save()
 
+            # send_mail(
+            #     'Prezent dla Klary i Jacka, który zarezerwowałeś, to: {}'.format(gift.name),
+            #     'Gratulacje! \n'
+            #     'Wybrałeś prezent: {}\n'
+            #     'Przykładowy link: {}\n'
+            #     'Do zobaczenia ma Ślubie!'.format(gift.name, gift.link),
+            #     'jacool92@gmail.com',
+            #     email,
+            #     fail_silently = False,
+            # )
             send_mail(
                 'Prezent dla Klary i Jacka, który zarezerwowałeś, to: {}'.format(gift.name),
-                'Gratulacje! \n'
-                'Wybrałeś prezent: {}\n'
-                'Przykładowy link: {}\n'
-                'Do zobaczenia ma Ślubie!'.format(gift.name, gift.link),
-                'jacool92@gmail.com',
+                'email.html'.format(gift_name=gift.name, gift_link=gift.link),
+                'jacekbera1@gmail.com',
                 email,
                 fail_silently = False,
             )
