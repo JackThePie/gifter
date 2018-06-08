@@ -4,10 +4,7 @@ from .models import Gift
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
-from django.core.mail import EmailMessage
 from .forms import ContactForm
-from django.template.loader import get_template
-import pprint as pp
 
 # Create your views here.
 def index(request):
@@ -65,11 +62,8 @@ def occupy(request):
             #     fail_silently = False,
             # )
 
-
             msg_plain = render_to_string('email.txt', {'gift_name': gift.name, 'gift_link': gift.link})
             msg_html = render_to_string('email.html', {'gift_name': gift.name, 'gift_link': gift.link})
-            print(msg_plain)
-            print(msg_html)
             send_mail(
                 'Prezent dla Klary i Jacka, który zarezerwowałeś, to: {}'.format(gift.name),
                 msg_plain,
@@ -78,11 +72,6 @@ def occupy(request):
                 html_message=msg_html,
             )
 
-            # email = EmailMessage('Prezent dla Klary i Jacka, który zarezerwowałeś, to: {}'.format(gift.name),
-            #                      'Gratulacje! \n Wybrałeś prezent: {}'
-            #                      'Przykładowy link: {}'
-            #                      'Do zobaczenia ma Ślubie!'.format(gift.name, gift.link), to=[email])
-            # email.send()
         else:
             print('Bad email adress')
     return HttpResponse(occupied)
