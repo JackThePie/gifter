@@ -60,20 +60,14 @@ def occupy(request):
             #     'Wybrałeś prezent: {}\n'
             #     'Przykładowy link: {}\n'
             #     'Do zobaczenia ma Ślubie!'.format(gift.name, gift.link),
-            #     'jacool92@gmail.com',
-            #     email,
-            #     fail_silently = False,
-            # )
-            # send_mail(
-            #     'Prezent dla Klary i Jacka, który zarezerwowałeś, to: {}'.format(gift.name),
-            #     'email.html'.format(gift_name=gift.name, gift_link=gift.link),
             #     'jacekbera1@gmail.com',
             #     email,
             #     fail_silently = False,
             # )
 
-            msg_plain = render_to_string('templates/email.txt', {'gift_name': gift.name, 'gift_link': gift.link})
-            msg_html = render_to_string('templates/email.html', {'gift_name': gift.name, 'gift_link': gift.link})
+
+            msg_plain = render_to_string('email.txt', {'gift_name': gift.name, 'gift_link': gift.link})
+            msg_html = render_to_string('email.html', {'gift_name': gift.name, 'gift_link': gift.link})
             print(msg_plain)
             print(msg_html)
             send_mail(
