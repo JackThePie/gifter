@@ -76,7 +76,7 @@ def occupy(request):
             msg_html = render_to_string('templates/email.html', {'gift_name': gift.name, 'gift_link': gift.link})
 
             send_mail(
-                'Prezent dla Klary i Jacka, który zarezerwowałeś, to: {}'.format(gift.name),
+                'Prezent 1111111111dla Klary i Jacka, który zarezerwowałeś, to: {}'.format(gift.name),
                 msg_plain,
                 'jacekbera1@gmail.com',
                 email,
