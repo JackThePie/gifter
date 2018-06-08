@@ -12,7 +12,7 @@ $('button').on('click', function(event){
         success : function(response){
 //            element.html(' ' + response);
 //                location.reload();
-        window.location = url; 
+        window.location = url;
         }
     });
 });
