@@ -8,8 +8,6 @@ from .forms import ContactForm
 
 # Create your views here.
 def index(request):
-    print('test1')
-
     gifts = Gift.objects.all()
 
     form_class = ContactForm
@@ -28,7 +26,6 @@ def index(request):
 
 
 def occupy(request):
-    print('hrj')
     gift_id = request.GET.get('gift_id', None)
     print(gift_id)
     # print(type(request))
@@ -38,7 +35,6 @@ def occupy(request):
 
     occupied = 0
     if (gift_id) and '@' in email[0]:
-        print("blah")
         gift = Gift.objects.get(id=int(gift_id))
         print('identified')
 
