@@ -1,14 +1,28 @@
-<p>{% load staticfiles %}</p>
-<p>&nbsp;</p>
-<nav class="navbar navbar-default navbar-static-top text-center"></nav>
-<div class="gift panel panel-success">
-   <div class="panel-heading text-center">
-      <h1>Gratulacje! Zarezerwowałeś: <strong>{{ gift_name }}</strong></h1>
-   </div>
-   <div class="panel-body text-center">
-      <h4>Prezent dla Klary i Jacka, kt&oacute;ry zarezerwowałeś, to: {{ gift_name }}</h4>
-      <h4>Link do przykładowego prezentu: {{ gift_link }}</h4>
-      <h4>Do zobaczenia na Ślubie!</h4>
-      <h4>Klara i Jacek</h4>
-   </div>
-</div>
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pl">
+   <head>
+      <style>
+        body {background-color: gainsboro;}
+        h1   {color: grey; font-family: Helvetica; text-align:center;}
+         h4   {color: grey; font-family: Helvetica; text-align:center;}
+</style>
+   </head>
+   <body style="color:green;">
+      <nav class="navbar navbar-default navbar-static-top text-center">
+
+      </nav>
+      <main class="container" role="main">
+         <div class="gift panel panel-success">
+            <div class="panel-heading text-center"><h1>Gratulacje! Zarezerwowałeś: <strong>{{ gift_name }}</strong></h1></div>
+                <div class="panel-body text-center">
+                    <h4>Prezent dla Klary i Jacka, który zarezerwowałeś, to: {{ gift_name }}</h4>
+                    <h4>Link do przykładowego prezentu: {{ gift_link }}</h4>
+                    <h4>Do zobaczenia na Ślubie!</h4>
+                    <h4>Klara i Jacek</h4>
+                </div>
+         </div>
+
+      </main>
+   </body>
+</html>
