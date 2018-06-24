@@ -1,0 +1,9 @@
+h1 {
+    color: green;
+}
+.dots {
+  background:
+  linear-gradient(#fff,#fff) 68px 50px/calc(100% - 136px) calc(100% - 100px) no-repeat,
+  radial-gradient(circle at 12px 12px,#000 20%, transparent 22%) 12px 2px/33px 50px,
+  radial-gradient(circle at 12px 12px,#000 20%, transparent 22%) 33px 27px/33px 50px;
+}
